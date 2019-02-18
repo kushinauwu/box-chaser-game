@@ -52,10 +52,32 @@
         const gameAreaElement = document.querySelector(".gameArea");
         const gameArea = gameAreaElement.getBoundingClientRect();
         let squares = [];
+
         /* divide the game area into parts in array to build the grid */
         let gamebox = {
             x: Math.floor(gameArea.width / 100),
             y: Math.floor(gameArea.height / 100),
+        }
+
+        /* event listener is if document content has loaded, i.e if document is ready */
+        document.addEventListener("DOMContentLoaded", build);
+
+        function build() {
+            box = document.createElement("div");
+            box.classList.add("box");
+
+            /* start off player aka box  at top left */
+            box.x = gameArea.top;
+            box.y = gameArea.left;
+
+            /* box is positioned as absolute. Apply styles by adding px to top and left position numbers. e.g if x is 8, position to 8px from left*/
+            box.style.top = box.y + "px";
+            box.style.left = box.x + "px";
+
+            /* add box element to the page */
+            gameAreaElement.appendChild(box);
+            console.log("box");
+
         }
     </script>
 </body>
