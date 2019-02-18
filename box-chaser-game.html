@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Box Chaser!</title>
     <style>
         .gameArea {
             width: 800px;
@@ -10,7 +11,6 @@
 
         .score {
             font-size: 32px;
-
         }
 
         .box {
@@ -37,17 +37,27 @@
             background-color: palegreen;
             color: darkslategray;
         }
-
     </style>
-    <title>Box Chaser!</title>
 </head>
 
 <body>
     <div class="gameArea">
-        <div>Score: <span class="score">0</span></div>
+    </div>
+    <div>Score: <span class="score">0</span>
     </div>
 
-    <script></script>
+    <script>
+        let box = {};
+        const score = document.querySelector(".score");
+        const gameAreaElement = document.querySelector(".gameArea");
+        const gameArea = gameAreaElement.getBoundingClientRect();
+        let squares = [];
+        /* divide the game area into parts in array to build the grid */
+        let gamebox = {
+            x: Math.floor(gameArea.width / 100),
+            y: Math.floor(gameArea.height / 100),
+        }
+    </script>
 </body>
 
 </html>
