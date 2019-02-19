@@ -6,7 +6,7 @@
     <style>
         .gameArea {
             width: 800px;
-            height: 200px;
+            height: 300px;
         }
 
         .score {
@@ -53,7 +53,7 @@
         const gameArea = gameAreaElement.getBoundingClientRect();
         let squares = [];
 
-        /* divide the game area into parts in array to build the grid */
+        /* player is in gamebox, so make a square for the player called gamebox */
         let gamebox = {
             x: Math.floor(gameArea.width / 100),
             y: Math.floor(gameArea.height / 100),
@@ -76,7 +76,16 @@
 
             /* add box element to the page */
             gameAreaElement.appendChild(box);
-            console.log("box");
+            let counter = 1;
+            /* go through the gamearea with squares of the size of 1 gamebox */
+            for (let y = 0; y < gamebox.y; y++) {
+                for (let x = 0; x < gamebox.x; x++) {
+                    squares[counter] = document.createElement("div");
+                    counter++;
+                }
+            }
+
+            console.log(squares);
 
         }
     </script>
